@@ -1,14 +1,29 @@
 <ion-header>
-  <ion-navbar>
+  <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      CICLO 2019-A
     </ion-title>
-  </ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="search()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+  <ion-card *ngFor="let clase of clases" (click)="info(clase)">
+
+    <!-- {{clase | json}} -->
+    <ion-card-header>
+      {{clase.Materia.Nombre}}
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Clave: {{clase.Materia.Clave}}</p>
+      <p>NRC: {{clase.NRC}}</p>
+      <p>Profesor: {{clase.Profesor}}</p>
+    </ion-card-content>
+
+  </ion-card>
+  </ion-content>
